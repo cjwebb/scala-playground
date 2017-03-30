@@ -1,24 +1,20 @@
 name := "Scala Playground"
+version := "1.1.0"
+scalaVersion := "2.12.1"
 
-version := "1.0"
+resolvers ++=
+  Resolver.sonatypeRepo("releases") ::
+  Resolver.sonatypeRepo("snapshots") ::
+  Nil
 
-scalaVersion := "2.10.2"
+libraryDependencies ++=
+  "org.scalaz" %% "scalaz-core" % "7.2.10" ::
+  "org.typelevel" %% "cats" % "0.9.0" ::
+  "com.chuusai" %% "shapeless" % "2.3.2" ::
+  "org.scalatest" %% "scalatest" % "3.0.1" % "test" ::
+  "joda-time" % "joda-time" % "2.9.7" ::
+  "org.joda" % "joda-convert" % "1.8.1" ::
+  "com.typesafe.akka" %% "akka-actor" % "2.4.17" ::
+  "com.typesafe.akka" %% "akka-http" % "10.0.5" ::
+  Nil
 
-resolvers ++= Seq(
-  "Sonatype OSS Releases"  at "http://oss.sonatype.org/content/repositories/releases/",
-  "Sonatype OSS Snapshots" at "http://oss.sonatype.org/content/repositories/snapshots/",
-  "spray" at "http://repo.spray.io/",
-  "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
-)
-
-libraryDependencies ++= Seq(
-  "org.scalaz" %% "scalaz-core" % "7.0.4",
-  "com.chuusai" % "shapeless" % "2.0.0-M1" cross CrossVersion.full,
-  "io.spray" %%  "spray-json" % "1.2.5",
-  "io.spray" %  "spray-can" % "1.2.0",
-  "io.spray" %  "spray-httpx" % "1.2.0",
-  "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
-  "joda-time" % "joda-time" % "2.3",
-  "org.joda" % "joda-convert" % "1.3.1",
-  "com.typesafe.akka" %% "akka-actor" % "2.2.3"
-)
